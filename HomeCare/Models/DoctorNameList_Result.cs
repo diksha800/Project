@@ -10,12 +10,11 @@
 namespace HomeCare.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PatientsState
+    public partial class DoctorNameList_Result
     {
-        public int patientId { get; set; }
-        public string firsttname { get; set; }
-        public string state { get; set; }
+        public int ID { get; set; }
+        public int DID { get; set; }
+        public string doctorName { get; set; }
     }
 }

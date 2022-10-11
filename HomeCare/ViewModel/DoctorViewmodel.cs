@@ -9,6 +9,7 @@ namespace HomeCare.ViewModel
     {
         public int DID { get; set; }
         public int ID { get; set; }
+        public DateTime AppointmentDate { get; set; }
 
     }
 }

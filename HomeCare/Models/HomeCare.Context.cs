@@ -34,7 +34,6 @@ namespace HomeCare.Models
         public virtual DbSet<patient> patients { get; set; }
         public virtual DbSet<Specialist> Specialists { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<PatientsState> PatientsStates { get; set; }
     
         public virtual int AddUser(string pLogin, string pPassword, string pFirstName, string pLastName)
         {
@@ -100,6 +99,26 @@ namespace HomeCare.Models
         public virtual ObjectResult<AppointmentRecords_Result> appointmentrecord()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AppointmentRecords_Result>("appointmentrecord");
+        }
+    
+        public virtual ObjectResult<Getaudit_Result> Getaudit()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Getaudit_Result>("Getaudit");
+        }
+    
+        public virtual ObjectResult<Getaudit_Result> GetAuditInfo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Getaudit_Result>("GetAuditInfo");
+        }
+    
+        public virtual ObjectResult<DoctorNameList_Result> DoctorNameList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DoctorNameList_Result>("DoctorNameList");
+        }
+    
+        public virtual ObjectResult<SpecialistList_Result> SpecialistList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SpecialistList_Result>("SpecialistList");
         }
     }
 }

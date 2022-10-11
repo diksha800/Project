@@ -17,7 +17,6 @@ namespace HomeCare.Controllers
     {
         private HomeHealthCareEntities entities = new HomeHealthCareEntities();
         private object varhashedBytes;
-        public static int UserId;
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public AccountController()
         {
@@ -28,7 +27,7 @@ namespace HomeCare.Controllers
 
         [HttpPost]
 
-        public IHttpActionResult Register(Users model)
+        public void Register(Users model)
         {
 
             if (ModelState.IsValid)
@@ -37,13 +36,8 @@ namespace HomeCare.Controllers
                 {
                     entities.AddUser(model.Username, model.Password, model.FirstName, model.LastName);
                     entities.SaveChanges();
-                    return Ok();
-
                 }
-
-
             }
-            return BadRequest();
         }
 
         [Route("api/account/login")]
@@ -69,25 +63,22 @@ namespace HomeCare.Controllers
                         }
                         try
                         {
-                            entities.Users.Any(user => user.UserName == userLogin.Username && user.Password== varhashedBytes);
-                         
-                            
-                                string userName = userLogin.Username;
-                                
-                                Debug.WriteLine("Success &&");
-                                logger.Info("User Logged in Successfully");
-                                return Request.CreateResponse(HttpStatusCode.Created,
-                                                     new
-                                                     {
+                            entities.Users.Any(user => user.UserName == userLogin.Username && user.Password == varhashedBytes);
 
-                                                         Success = true,
-                                                         RedirectUrl = ("https://localhost:44386/Home/index"),
-                                                         userName=userName
-                                                         
+                            Debug.WriteLine("Success &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+                            logger.Info("User Logged in Successfully");
+                            return Request.CreateResponse(HttpStatusCode.Created,
+                                                 new
+                                                 {
 
-                                                     });
-                            
+                                                     Success = true,
+                                                     RedirectUrl = ("https://localhost:44386/Home/Index"),
+                                                   
+
+                                                 });
+
                         }
+
                         catch (Exception e)
                         {
                             logger.Error("Error Occoured During User Validation");
@@ -109,7 +100,7 @@ namespace HomeCare.Controllers
         [HttpGet]
         public HttpResponseMessage Logout()
         {
-            UserId = 0;
+            
             var loginUrl = this.Url.Link("Default", new
             {
                 Controller = "HomeHealthCare",

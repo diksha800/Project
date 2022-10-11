@@ -78,6 +78,49 @@ namespace HomeCare.Controllers
             }
             return Json(appointmentRecords.ToDataSourceResult(request));
         }
+        public async Task<JsonResult> GetSpecialistList()
+        {
+            List<SpecialistList_Result> Specialist = new List<SpecialistList_Result>();
+
+
+
+            hc.BaseAddress = new Uri("https://localhost:44386/");
+
+
+
+            HttpResponseMessage message = await hc.GetAsync("api/appointment/Getspecialist/");
+
+
+
+            if (message.IsSuccessStatusCode)
+            {
+                var display = message.Content.ReadAsAsync<List<SpecialistList_Result>>();
+                Specialist = display.Result;
+            }
+            return Json(Specialist, JsonRequestBehavior.AllowGet);
+        }
+
+        public async Task<JsonResult> GetDoctorNameList()
+        {
+            List<DoctorNameList_Result> doctornamelist = new List<DoctorNameList_Result>();
+
+
+
+            hc.BaseAddress = new Uri("https://localhost:44386/");
+
+
+
+            HttpResponseMessage message = await hc.GetAsync("api/appointment/Getdoctornamelist/");
+
+
+
+            if (message.IsSuccessStatusCode)
+            {
+                var display = message.Content.ReadAsAsync<List<DoctorNameList_Result>>();
+                doctornamelist = display.Result;
+            }
+            return Json(doctornamelist, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

@@ -89,18 +89,6 @@
           <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdatedDateTime" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="PatientsState">
-          <Key>
-            <PropertyRef Name="patientId" />
-            <PropertyRef Name="firsttname" />
-            <PropertyRef Name="state" />
-          </Key>
-          <Property Name="patientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="firsttname" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="state" Type="nchar" MaxLength="10" Nullable="false" />
-        </EntityType>
         <Association Name="FK_Audit_UerId">
           <End Role="patients" Type="Self.patients" Multiplicity="1" />
           <End Role="Audit" Type="Self.Audit" Multiplicity="*" />
@@ -135,13 +123,16 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
         <Function Name="DeletePatientsDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="paientId" Type="int" Mode="In" />
         </Function>
+        <Function Name="DoctorNameList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Getappointments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AID" Type="int" Mode="In" />
           <Parameter Name="DoctorName" Type="nvarchar" Mode="In" />
           <Parameter Name="Specialist" Type="nvarchar" Mode="In" />
           <Parameter Name="AppointmentDime" Type="date" Mode="In" />
         </Function>
+        <Function Name="Getaudit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="PatientRecords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SpecialistList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HomeHealthCareModelStoreContainer">
           <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
@@ -150,13 +141,6 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
           <EntitySet Name="patients" EntityType="Self.patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialist" EntityType="Self.Specialist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PatientsState" EntityType="Self.PatientsState" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [PatientsState].[patientId] AS [patientId], 
-    [PatientsState].[firsttname] AS [firsttname], 
-    [PatientsState].[state] AS [state]
-    FROM [dbo].[PatientsState] AS [PatientsState]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Audit_UerId" Association="Self.FK_Audit_UerId">
             <End Role="patients" EntitySet="patients" />
             <End Role="Audit" EntitySet="Audit" />
@@ -258,16 +242,6 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="PatientsState">
-          <Key>
-            <PropertyRef Name="patientId" />
-            <PropertyRef Name="firsttname" />
-            <PropertyRef Name="state" />
-          </Key>
-          <Property Name="patientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="firsttname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="state" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-        </EntityType>
         <Association Name="FK_Audit_UerId">
           <End Role="patients" Type="Self.patient" Multiplicity="1" />
           <End Role="Audit" Type="Self.Audit" Multiplicity="*" />
@@ -300,7 +274,6 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
           <EntitySet Name="patients" EntityType="Self.patient" />
           <EntitySet Name="Specialists" EntityType="Self.Specialist" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="PatientsStates" EntityType="Self.PatientsState" />
           <AssociationSet Name="FK_Audit_UerId" Association="Self.FK_Audit_UerId">
             <End Role="patients" EntitySet="patients" />
             <End Role="Audit" EntitySet="Audits" />
@@ -327,6 +300,10 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
           <FunctionImport Name="PatientRecords" ReturnType="Collection(HomeHealthCareModel.PatientRecords_Result)" />
           <FunctionImport Name="AppointmentRecords" ReturnType="Collection(HomeHealthCareModel.AppointmentRecords_Result)" />
           <FunctionImport Name="appointmentrecord" ReturnType="Collection(HomeHealthCareModel.AppointmentRecords_Result)" />
+          <FunctionImport Name="Getaudit" ReturnType="Collection(HomeHealthCareModel.Getaudit_Result)" />
+          <FunctionImport Name="GetAuditInfo" ReturnType="Collection(HomeHealthCareModel.Getaudit_Result)" />
+          <FunctionImport Name="DoctorNameList" ReturnType="Collection(HomeHealthCareModel.DoctorNameList_Result)" />
+          <FunctionImport Name="SpecialistList" ReturnType="Collection(HomeHealthCareModel.SpecialistList_Result)" />
         </EntityContainer>
         <ComplexType Name="Getappointments_Result">
           <Property Type="String" Name="firstname" Nullable="false" MaxLength="20" />
@@ -352,6 +329,22 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
           <Property Type="String" Name="DoctorName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Specialist" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="AppointmentDate" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Getaudit_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="PatientId" Nullable="false" />
+          <Property Type="String" Name="TypeOfAction" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="AccessedDTTM" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="DoctorNameList_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="DID" Nullable="false" />
+          <Property Type="String" Name="doctorName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SpecialistList_Result">
+          <Property Type="Int32" Name="DID" Nullable="false" />
+          <Property Type="String" Name="Specialist" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -450,15 +443,6 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PatientsStates">
-            <EntityTypeMapping TypeName="HomeHealthCareModel.PatientsState">
-              <MappingFragment StoreEntitySet="PatientsState">
-                <ScalarProperty Name="patientId" ColumnName="patientId" />
-                <ScalarProperty Name="firsttname" ColumnName="firsttname" />
-                <ScalarProperty Name="state" ColumnName="state" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="AddUser" FunctionName="HomeHealthCareModel.Store.AddUser" />
           <FunctionImportMapping FunctionImportName="DeletePatientsDetails" FunctionName="HomeHealthCareModel.Store.DeletePatientsDetails" />
           <FunctionImportMapping FunctionImportName="Getappointments" FunctionName="HomeHealthCareModel.Store.Getappointments">
@@ -505,6 +489,45 @@ warning 6002: The table/view 'HomeHealthCare.dbo.PatientsState' does not have a 
                 <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
                 <ScalarProperty Name="Specialist" ColumnName="Specialist" />
                 <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Getaudit" FunctionName="HomeHealthCareModel.Store.Getaudit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HomeHealthCareModel.Getaudit_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="TypeOfAction" ColumnName="TypeOfAction" />
+                <ScalarProperty Name="AccessedDTTM" ColumnName="AccessedDTTM" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAuditInfo" FunctionName="HomeHealthCareModel.Store.Getaudit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HomeHealthCareModel.Getaudit_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="TypeOfAction" ColumnName="TypeOfAction" />
+                <ScalarProperty Name="AccessedDTTM" ColumnName="AccessedDTTM" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DoctorNameList" FunctionName="HomeHealthCareModel.Store.DoctorNameList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HomeHealthCareModel.DoctorNameList_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DID" ColumnName="DID" />
+                <ScalarProperty Name="doctorName" ColumnName="doctorName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpecialistList" FunctionName="HomeHealthCareModel.Store.SpecialistList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HomeHealthCareModel.SpecialistList_Result">
+                <ScalarProperty Name="DID" ColumnName="DID" />
+                <ScalarProperty Name="Specialist" ColumnName="Specialist" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

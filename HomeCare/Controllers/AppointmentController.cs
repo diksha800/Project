@@ -1,4 +1,5 @@
 ﻿using HomeCare.Models;
+using HomeCare.ViewModel;
 using NLog;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ namespace HomeCare.Controllers
 {
     public class AppointmentController : ApiController
 
-
     {
         private HomeHealthCareEntities HomeHealthCareEntitie;
         public readonly Logger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -21,17 +21,21 @@ namespace HomeCare.Controllers
         {
             this.HomeHealthCareEntitie = new HomeHealthCareEntities();
         }
-        public void Getappointment(Appointment model)
+        [Route("api/appointment/Getappointment")]
+        [HttpPost]
+        public void Getappointment(DoctorViewmodel model)
         {
-            if (ModelState.IsValid)
-            {
+            var specialist = HomeHealthCareEntitie.Specialists.FirstOrDefault(p => p.DID == model.DID);
+            var doctorName = HomeHealthCareEntitie.doctorNames.FirstOrDefault(p => p.ID== model.ID);
+
                 using (HomeHealthCareEntitie)
                 {
-                    HomeHealthCareEntitie.Getappointments(model.ID, model.Specialist, model.DoctorName, model.AppointmentDate);
+                    HomeHealthCareEntitie.Getappointments(model.ID, specialist.Specialist1, doctorName.DoctorName1, model.AppointmentDate);
                     HomeHealthCareEntitie.SaveChanges();
                 }
-            }
+            
         }
+        [HttpGet]
 
         public IHttpActionResult AppointmentRecord()
         {
@@ -39,24 +43,21 @@ namespace HomeCare.Controllers
             appointmentRecords = HomeHealthCareEntitie.AppointmentRecords().ToList();
             return Json(appointmentRecords);
         }
+        public IHttpActionResult Getspecialist()
+        {
+            List<SpecialistList_Result> specialistRecords = new List<SpecialistList_Result>();
+            specialistRecords = HomeHealthCareEntitie.SpecialistList().ToList();
+            return Json(specialistRecords);
 
-        //public HttpResponseMessage GetAppointments(Appointment model)
-        //{
-        //    logger.Info("Entering in the GetAppointments  method");
-        //    try
-        //    {
-        //        HomeHealthCareEntitie.Getappointments(model.ID, model.Specialist, model.DoctorName, model.AppointmentDate);
-        //        HomeHealthCareEntitie.SaveChanges();
-        //        logger.Info("Exit the Add method.    Item Added successfully");
-        //        return Request.CreateResponse(HttpStatusCode.OK);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        logger.Error(" Exception during Adding item ");
-        //        logger.Error(e);
-        //        return Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, e);
-        //    }
-        //}
+        }
+        public IHttpActionResult Getdoctornamelist()
+        {
+            List<DoctorNameList_Result> doctornamelist = new List<DoctorNameList_Result>();
+            doctornamelist = HomeHealthCareEntitie.DoctorNameList().ToList();
+            return Json(doctornamelist);
+
+        }
+
     }
 }
 

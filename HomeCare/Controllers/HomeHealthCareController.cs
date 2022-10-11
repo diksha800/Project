@@ -22,5 +22,10 @@ namespace HomeCare.Controllers
         {
             return View();
         }
+        public ActionResult Audit()
+        {
+            return View();
+           
+        }
     }
 }

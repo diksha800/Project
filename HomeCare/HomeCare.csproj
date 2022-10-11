@@ -257,7 +257,13 @@
     <Compile Include="Models\doctorName.cs">
       <DependentUpon>HomeCare.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DoctorNameList_Result.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Getappointments_Result.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Getaudit_Result.cs">
       <DependentUpon>HomeCare.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeCare.Context.cs">
@@ -281,10 +287,10 @@
     <Compile Include="Models\PatientRecords_Result.cs">
       <DependentUpon>HomeCare.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PatientsState.cs">
+    <Compile Include="Models\Specialist.cs">
       <DependentUpon>HomeCare.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Specialist.cs">
+    <Compile Include="Models\SpecialistList_Result.cs">
       <DependentUpon>HomeCare.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
