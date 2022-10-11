@@ -1,0 +1,1047 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{58282F55-D62A-46F3-B3A8-0BBD3D14EC5B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HomeCare</RootNamespace>
+    <AssemblyName>HomeCare</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44386</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\Kendo.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kendo.Mvc.Export">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\export\binaries\net40\Kendo.Mvc.Export.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.0.4\lib\net46\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.Spreadsheet">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Web.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.CMapUtils">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.CMapUtils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.DrawingML">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.DrawingML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Fixed">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Fixed.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Flow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Doc">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Flow.FormatProviders.Doc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow.FormatProviders.Pdf">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Flow.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Xls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip.Extensions">
+      <HintPath>..\lib\KENDOUIMVC\2022.3.913.545.Trial\spreadsheet\binaries\net40\Telerik.Windows.Zip.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeHealthCareController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CurrentDateAttribute.cs" />
+    <Compile Include="Models\Appointment.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppointmentRecords_Result.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Audit.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Doctor.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\doctorName.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Getappointments_Result.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HomeCare.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeCare.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HomeCare.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HomeCare.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeCare.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\patient.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientRecords_Result.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientsState.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialist.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>HomeCare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AppointmentViewModel.cs" />
+    <Compile Include="ViewModel\DoctorViewmodel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\healthcare.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Image\fullimage.jpg" />
+    <Content Include="Image\loginlogo.jpg" />
+    <Content Include="Image\Welcomeimg.png" />
+    <Content Include="Models\HomeCare.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HomeCare.edmx</DependentUpon>
+      <LastGenOutput>HomeCare.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\HomeCare.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HomeCare.edmx</DependentUpon>
+      <LastGenOutput>HomeCare.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\HomeCare.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HomeCare.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\HomeCare.edmx.diagram">
+      <DependentUpon>HomeCare.edmx</DependentUpon>
+    </Content>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-Hans-MO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-Hans.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-Hant.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-HK.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-MO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-SG.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-TW.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zu-ZA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zu.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\jquery.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\jszip.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.angular.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.appbar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.autocomplete.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.avatar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.badge.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.binder.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.bottomnavigation.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.breadcrumb.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.button.menu.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.button.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.calendar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.captcha.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.chat.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.checkbox.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.checkboxgroup.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.circularprogressbar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.color.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.colorpicker.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.columnmenu.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.columnsorter.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.combobox.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.core.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.odata.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.signalr.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.xml.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.barcode.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.chart.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.core.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.diagram.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.gauge.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.map.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.mobile.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.qrcode.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.sparkline.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.stock.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.themes.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.treemap.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dateinput.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.datepicker.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.daterangepicker.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.datetimepicker.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dialog.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dom.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.drawer.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.drawing.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dropdownbutton.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dropdownlist.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dropdowntree.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.editable.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.editor.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.excel.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.expansionpanel.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filebrowser.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filemanager.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filter.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filtercell.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filtermenu.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.floatingactionbutton.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.floatinglabel.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.form.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.fx.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.data.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.editors.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.list.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.timeline.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.grid.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.groupable.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.base.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.button.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.chip.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.chiplist.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.input.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.imagebrowser.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.imageeditor.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.inputgroupbase.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.list.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.listbox.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.listview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.loader.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.maskedtextbox.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mediaplayer.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.menu.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.application.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.button.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.collapsible.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.drawer.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.listview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.loader.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.modalview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.navbar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.pane.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.popover.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.scroller.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.shim.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.splitview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.switch.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.view.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.multicolumncombobox.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.multiselect.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.multiviewcalendar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.notification.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.numerictextbox.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.ooxml.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.orgchart.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pager.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pane.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.panelbar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pdf.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pdfviewer.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivot.common.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivot.configurator.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivot.fieldmenu.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivotgrid.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.popover.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.popup.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.progressbar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.radiobutton.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.radiogroup.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.rating.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.reorderable.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.resizable.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.responsivepanel.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.ripple.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.router.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.agendaview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.dayview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.monthview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.recurrence.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.timelineview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.view.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.yearview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.selectable.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.signature.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.skeletoncontainer.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.slider.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.sortable.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.splitbutton.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.splitter.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.spreadsheet.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.stepper.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.switch.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.taskboard.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.textarea.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.textbox.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.tilelayout.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.timeline.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.timepicker.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.timezones.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.toggleinputbase.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.toolbar.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.tooltip.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.touch.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.treelist.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.treeview.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.treeview.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.upload.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.userevents.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.validator.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.view.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.virtuallist.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.web.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.window.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.wizard.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-AE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-BH.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-DJ.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-DZ.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-EG.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-ER.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-IL.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-IQ.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-JO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-KM.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-KW.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-LB.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-LY.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-MA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-MR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-OM.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-PS.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-QA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SD.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SS.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SY.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-TD.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-TN.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-YE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.bg-BG.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.cs-CZ.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.da-DK.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-AT.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-CH.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-DE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-LI.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.el-GR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-AU.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-CA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-GB.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-US.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-AR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-BO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-CL.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-CO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-CR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-DO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-EC.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-ES.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-GT.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-HN.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-MX.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-NI.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PY.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-US.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-UY.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-VE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fa-IR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fi-FI.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-BE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CD.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CH.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CI.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CM.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-FR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-HT.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-LU.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-MA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-MC.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-ML.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-SN.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.he-IL.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.hr-HR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.hu-HU.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.hy-AM.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.it-CH.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.it-IT.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ja-JP.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.mk-MK.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.nb-NO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.nl-BE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.nl-NL.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.pl-PL.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.pt-BR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.pt-PT.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ro-RO.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ru-RU.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sk-SK.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sq-AL.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sr-Latn-RS.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sv-SE.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.tr-TR.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.uk-UA.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.vi-VN.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.zh-CN.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.zh-HK.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.zh-TW.min.js" />
+    <Content Include="Scripts\kendo\2022.3.913\pako_deflate.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Country.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.zh-TW.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.zh-HK.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.zh-CN.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.vi-VN.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.uk-UA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.tr-TR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sv-SE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sr-Latn-RS.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sq-AL.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.sk-SK.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ru-RU.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ro-RO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.pt-PT.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.pt-BR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.pl-PL.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.nl-NL.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.nl-BE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.nb-NO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.mk-MK.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ja-JP.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.it-IT.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.it-CH.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.hy-AM.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.hu-HU.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.hr-HR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.he-IL.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-SN.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-ML.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-MC.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-MA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-LU.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-HT.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-FR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CM.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CI.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CH.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CD.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-CA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fr-BE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fi-FI.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.fa-IR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-VE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-UY.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-US.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PY.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-PA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-NI.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-MX.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-HN.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-GT.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-ES.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-EC.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-DO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-CR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-CO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-CL.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-BO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.es-AR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-US.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-GB.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-CA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.en-AU.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.el-GR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-LI.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-DE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-CH.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.de-AT.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.da-DK.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.cs-CZ.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.bg-BG.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-YE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-TN.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-TD.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SY.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SS.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SD.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-SA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-QA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-PS.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-OM.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-MR.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-MA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-LY.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-LB.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-KW.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-KM.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-JO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-IQ.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-IL.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-ER.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-EG.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-DZ.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-DJ.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-BH.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\messages\kendo.messages.ar-AE.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.wizard.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.window.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.web.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.virtuallist.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.view.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.validator.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.userevents.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.upload.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.treeview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.treeview.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.treelist.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.touch.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.tooltip.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.toolbar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.toggleinputbase.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.timezones.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.timepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.timeline.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.tilelayout.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.textbox.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.textarea.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.taskboard.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.stepper.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.spreadsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.splitter.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.splitbutton.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.sortable.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.slider.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.skeletoncontainer.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.signature.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.selectable.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.yearview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.view.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.timelineview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.recurrence.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.monthview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.dayview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.scheduler.agendaview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.router.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.ripple.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.responsivepanel.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.resizable.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.reorderable.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.rating.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.radiogroup.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.radiobutton.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.progressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.popup.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivotgrid.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivot.fieldmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivot.configurator.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pivot.common.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pdfviewer.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pdf.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.panelbar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.pager.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.orgchart.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.ooxml.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.numerictextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.notification.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.multiviewcalendar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.multiselect.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.multicolumncombobox.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.view.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.splitview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.shim.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.scroller.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.navbar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.modalview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.collapsible.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.button.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.application.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mobile.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.mediaplayer.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.maskedtextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.listbox.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.list.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.inputgroupbase.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.imageeditor.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.imagebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.input.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.chiplist.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.chip.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.button.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.html.base.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.groupable.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.grid.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.timeline.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.list.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.editors.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.gantt.data.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.fx.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.form.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.floatinglabel.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.floatingactionbutton.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filtermenu.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filtercell.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filter.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filemanager.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.filebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.expansionpanel.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.excel.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.editor.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.editable.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dropdowntree.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dropdownlist.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dropdownbutton.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.drawing.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dom.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dialog.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.datetimepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.daterangepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.datepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dateinput.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.treemap.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.themes.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.stock.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.sparkline.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.qrcode.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.map.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.gauge.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.diagram.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.core.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.chart.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.dataviz.barcode.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.xml.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.signalr.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.odata.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.data.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.core.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.combobox.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.columnsorter.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.columnmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.colorpicker.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.color.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.circularprogressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.checkboxgroup.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.checkbox.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.chat.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.captcha.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.calendar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.button.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.button.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.breadcrumb.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.bottomnavigation.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.binder.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.badge.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.avatar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.autocomplete.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.appbar.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.angular.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.all.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\kendo.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\jquery.min.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zu.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zu-ZA.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-TW.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-SG.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-MO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-HK.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-Hant.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-Hans.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-Hans-MO.min.js.map" />
+    <Content Include="Scripts\kendo\2022.3.913\cultures\kendo.culture.zh-Hans-HK.min.js.map" />
+    <Content Include="Views\HomeHealthCare\Register.cshtml" />
+    <Content Include="Views\HomeHealthCare\Login.cshtml" />
+    <Content Include="Views\HomeHealthCare\Logout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50937</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44386/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseCdnSupport="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,176 @@
+﻿@model HomeCare.ViewModel.DoctorViewmodel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare</title>
+    <link rel="icon" type="image/png" href="~/Image/loginlogo.jpg" , 16px ,16px>
+    <link rel="stylesheet" href="~/Content/healthcare.css">
+
+</head>
+<body>
+    <div>
+        <ul class="btn btn-info btnlogin" style="margin-left:1100px">
+            <li>@Html.ActionLink("LogOut", "Logout", "HomeHealthCare", new { area = "" }, null)</li>
+        </ul>
+    </div>
+
+    <div>
+        <aside id="leftmenu">
+            <img src="~/Image/Welcomeimg.png" width="290" height="400" alt="welcomeimage" />
+
+        </aside>
+        <main id="main">
+            <h3><span style="color: #FE1D42 ;"> Get</span>  HomeHealthCare</h3>
+            <h3>Services <span style="color: #FE1D42 ;">at your</span></h3>
+            <h3><span style="color: #FE1D42 ;">doorstep</span></h3>
+            <h6>Nursing Care | Elder Care | Attender</h6>
+            <h6>Covid Care | ICU setup at home</h6>
+            <center>
+                <div id="tabstrip" width="1000px" ,height="500px">
+                    <ul>
+                        <li id="tab1">Book Appointment</li>
+                        <li>Appointment</li>
+                        <li>CallNow📞</li>
+                    </ul>
+                    <div>
+                        <h2>Appointment</h2>
+                        <form class="myValidator">
+                            <p>Specialist:<input type="text" id="dropdownlist" name="Speciality" required="" validationMessage="Speciality Name is required"></p>
+
+                            <p>Doctor Name:<input type="text" id="doctorname" name="DoctorName" required="" validationMessage="Doctor Name   is required"></p>
+                            <p>Appintment Date:<input id="datepicker" name="appointmentDate" required="" validationMessage=" Appointment Date is required" /> </p>
+                            <button id="book" type="button" onclick="book()">Book Appointment</button>
+                        </form>
+                    </div>
+                    <div>
+
+                        .@(Html.Kendo().Grid<HomeCare.Models.AppointmentRecords_Result>()
+        .Name("Home")
+        .Columns(columns =>
+        {
+            //columns.Bound(p => p.ID);
+            columns.Bound(p => p.DoctorName).Width(120);
+            columns.Bound(p => p.Specialist).Width(120);
+            columns.Bound(p => p.AppointmentDate).Width(120);
+
+
+
+
+            //columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+        })
+        //.ToolBar(toolbar => toolbar.Create())
+        //.Editable(editable => editable.Mode(GridEditMode.PopUp))
+
+        .Sortable()
+
+        .HtmlAttributes(new { style = "height:800px;" })
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .Model(model => model.Id(p => p.ID))
+            .Read(read => read.Action("AppointmentRecord", "Home"))
+        //.Update(update => update.Action("EditingPopup_Update", "Grid"))
+        //.Destroy(update => update.Action("EditingPopup_Destroy", "Grid"))
+        )
+    )
+
+
+                    </div>
+                    <div>
+
+                        <a href="6376084800">📞On</a>
+
+                    </div>
+
+                </div>
+            </center>
+        </main>
+
+    </div>
+
+    <script>
+
+        $("#tabstrip").kendoTabStrip().data("kendoTabStrip")
+    </script>
+    <script>
+
+        $("#datepicker").kendoDatePicker();
+        var datepicker = $("#datepicker").data("kendoDatePicker");
+        datepicker.min(new Date(2022, 10, 10)),
+            datepicker.max(new Date(2022, 12, 01))
+
+        $(document).ready(function () {
+            $("#dropdownlist").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Cardiologists", value: "1" },
+                    { text: "Dermatologists", value: "2" },
+                    { text: "Nephrologist", value: "3" },
+                    { text: "Urologists", value: "4" },
+                    { text: "Oncologist", value: "5" }
+
+                ],
+                optionLabel: "Select Specialist",
+            });
+
+        });
+        $(document).ready(function () {
+            $("#doctorname").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Dr.Mahesho Rao", value: "1" },
+                    { text: "Dr.Pankaj soni", value: "2" },
+                    { text: "Dr.Diksha Maharshi", value: "3" },
+                    { text: "Dr.Seema Sharma", value: "4" },
+                    { text: "Dr.Neha sharma", value: "5" },
+                    { text: "Dr. Dimple Maharshi", value: "6" }
+
+                ],
+                optionLabel: "Select DoctorName",
+
+            });
+
+
+        });
+    </script>
+    <script>
+
+        //$('#book').click(function () {
+
+        //    var validator = $(".myValidator").kendoValidator().data("kendoValidator");
+        //    validator.validate();
+
+        function book() {
+            $.ajax({
+                url: 'https://localhost:44386/api/appointment/',
+                method: "POST",
+                data: {
+                    Specialist: $('#dropdownlist').val(),
+                    doctorName: $('#doctorname').val(),
+                    appointmentDate: $('#datepicker').val()
+                },
+                success: function () {
+                    alert("")
+
+                },
+
+                error: function () {
+
+                }
+            })
+
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>
